@@ -37,7 +37,12 @@ const menuItems: MenuItem[] = [
       { label: "Blog posts", href: "/content/blog-posts" },
     ]
   },
-  { icon: Globe, label: "Markets", href: "/markets" },
+  { 
+    icon: Globe, label: "Markets", href: "/markets",
+    subItems: [
+      { label: "Catalogs", href: "/markets/catalogs" }
+    ]
+  },
   { icon: BarChart3, label: "Analytics", href: "/analytics" },
   { icon: Store, label: "Online Store", href: "/store" },
   { icon: Plug, label: "Apps", href: "/apps" },
