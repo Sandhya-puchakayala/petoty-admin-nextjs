@@ -28,7 +28,15 @@ const menuItems: MenuItem[] = [
   { icon: Users, label: "Customers", href: "/customers" },
   { icon: Megaphone, label: "Marketing", href: "/marketing" },
   { icon: Tag, label: "Discounts", href: "/discounts" },
-  { icon: FileText, label: "Content", href: "/content" },
+  { 
+    icon: FileText, label: "Content", href: "/content",
+    subItems: [
+      { label: "Metaobjects", href: "/content/metaobjects" },
+      { label: "Files", href: "/content/files" },
+      { label: "Menus", href: "/content/menus" },
+      { label: "Blog posts", href: "/content/blog-posts" },
+    ]
+  },
   { icon: Globe, label: "Markets", href: "/markets" },
   { icon: BarChart3, label: "Analytics", href: "/analytics" },
   { icon: Store, label: "Online Store", href: "/store" },
