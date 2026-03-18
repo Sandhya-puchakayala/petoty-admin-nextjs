@@ -1,26 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@plugin "tailwindcss-animate";
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@theme {
+  --font-sans: 'Outfit', system-ui, sans-serif;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  /* Petoty color palette */
+  --color-border: hsl(30 20% 88%);
+  --color-input: hsl(30 20% 88%);
+  --color-ring: hsl(336 57% 26%);
+  --color-background: hsl(30 33% 96%);
+  --color-foreground: hsl(0 0% 10%);
+
+  --color-primary: hsl(336 57% 26%);
+  --color-primary-foreground: hsl(0 0% 100%);
+
+  --color-secondary: hsl(30 33% 92%);
+  --color-secondary-foreground: hsl(0 0% 10%);
+
+  --color-destructive: hsl(0 84% 60%);
+  --color-destructive-foreground: hsl(0 0% 100%);
+
+  --color-muted: hsl(30 20% 94%);
+  --color-muted-foreground: hsl(215 16% 47%);
+
+  --color-accent: hsl(336 57% 26%);
+  --color-accent-foreground: hsl(0 0% 100%);
+
+  --color-popover: hsl(0 0% 100%);
+  --color-popover-foreground: hsl(0 0% 10%);
+
+  --color-card: hsl(0 0% 100%);
+  --color-card-foreground: hsl(0 0% 10%);
+
+  /* Sidebar */
+  --color-sidebar: hsl(336 57% 26%);
+  --color-sidebar-foreground: hsl(0 0% 100%);
+  --color-sidebar-primary: hsl(336 45% 35%);
+  --color-sidebar-primary-foreground: hsl(0 0% 100%);
+  --color-sidebar-accent: hsl(336 45% 35%);
+  --color-sidebar-accent-foreground: hsl(0 0% 100%);
+  --color-sidebar-border: hsl(336 45% 30%);
+  --color-sidebar-ring: hsl(336 57% 26%);
+
+  /* Petoty brand */
+  --color-petoty-maroon: #6B1A3A;
+  --color-petoty-maroon-lighter: #822F4F;
+  --color-petoty-cream: #F9F5F0;
+  --color-petoty-success: #22C55E;
+
+  --radius: 0.5rem;
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  --shadow-petoty: 0 4px 6px -1px rgba(107, 26, 58, 0.1);
+  --shadow-petoty-hover: 0 8px 15px -3px rgba(107, 26, 58, 0.15);
+
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+  --animate-fade-in-up: fade-in-up 0.4s ease-out forwards;
+
+  @keyframes accordion-down {
+    from { height: 0; }
+    to { height: var(--radix-accordion-content-height); }
+  }
+  @keyframes accordion-up {
+    from { height: var(--radix-accordion-content-height); }
+    to { height: 0; }
+  }
+  @keyframes fade-in-up {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 }
 
+/* CSS variable bridge for shadcn/ui components that use hsl(var(--xxx)) */
+:root {
+  --background: 30 33% 96%;
+  --foreground: 0 0% 10%;
+  --card: 0 0% 100%;
+  --card-foreground: 0 0% 10%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 0 0% 10%;
+  --primary: 336 57% 26%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 30 33% 92%;
+  --secondary-foreground: 0 0% 10%;
+  --muted: 30 20% 94%;
+  --muted-foreground: 215 16% 47%;
+  --accent: 336 57% 26%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 30 20% 88%;
+  --input: 30 20% 88%;
+  --ring: 336 57% 26%;
+  --radius: 0.5rem;
+  --sidebar-background: 336 57% 26%;
+  --sidebar-foreground: 0 0% 100%;
+  --sidebar-primary: 336 45% 35%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 336 45% 35%;
+  --sidebar-accent-foreground: 0 0% 100%;
+  --sidebar-border: 336 45% 30%;
+  --sidebar-ring: 336 57% 26%;
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: 'Outfit', system-ui, sans-serif;
+}
+
+@utility tabular-nums {
+  font-variant-numeric: tabular-nums;
 }
