@@ -4,7 +4,8 @@ import Link from "next/link";
 import { useState } from "react";
 import {
   Home, Package, ShoppingBag, Users, Megaphone, Tag,
-  FileText, Globe, BarChart3, Store, Plug, Settings, PawPrint, X, Menu, ChevronDown, ChevronRight
+  FileText, Globe, BarChart3, Store, Plug, Settings, PawPrint, X, Menu, ChevronDown, ChevronRight,
+  Stethoscope, RefreshCcw, ShieldCheck, LayoutGrid, UserCheck, Dog
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -17,7 +18,7 @@ type MenuItem = {
 
 const menuItems: MenuItem[] = [
   { icon: Home, label: "Home", href: "/" },
-  { 
+  {
     icon: Package, label: "Orders", href: "/orders",
     subItems: [
       { label: "Drafts", href: "/orders/drafts" },
@@ -25,10 +26,58 @@ const menuItems: MenuItem[] = [
     ]
   },
   { icon: ShoppingBag, label: "Products", href: "/products" },
+  {
+    icon: LayoutGrid, label: "Collection", href: "/collection",
+    subItems: [
+      { label: "All Collections", href: "/collection/all" },
+      { label: "Create Collection", href: "/collection/create" },
+    ]
+  },
+  {
+    icon: Dog, label: "Breeds", href: "/breeds",
+    subItems: [
+      { label: "All Breeds", href: "/breeds/all" },
+      { label: "Add Breed", href: "/breeds/add" },
+      { label: "Breed Details", href: "/breeds/details" },
+    ]
+  },
   { icon: Users, label: "Customers", href: "/customers" },
+  {
+    icon: UserCheck, label: "Manage Seller", href: "/manage-seller",
+    subItems: [
+      { label: "All Sellers", href: "/manage-seller/all" },
+      { label: "Pending Approval", href: "/manage-seller/pending" },
+      { label: "Seller Payouts", href: "/manage-seller/payouts" },
+    ]
+  },
+  {
+    icon: Stethoscope, label: "Services", href: "/services",
+    subItems: [
+      { label: "All Services", href: "/services/all" },
+      { label: "Grooming", href: "/services/grooming" },
+      { label: "Vet Consultation", href: "/services/vet" },
+      { label: "Training", href: "/services/training" },
+    ]
+  },
+  {
+    icon: RefreshCcw, label: "Pawscription", href: "/pawscription",
+    subItems: [
+      { label: "Active Plans", href: "/pawscription/active" },
+      { label: "Subscriptions", href: "/pawscription/subscriptions" },
+      { label: "Plan Management", href: "/pawscription/plans" },
+    ]
+  },
+  {
+    icon: ShieldCheck, label: "Pawsurance", href: "/pawsurance",
+    subItems: [
+      { label: "All Policies", href: "/pawsurance/policies" },
+      { label: "Claims", href: "/pawsurance/claims" },
+      { label: "Plan Management", href: "/pawsurance/plans" },
+    ]
+  },
   { icon: Megaphone, label: "Marketing", href: "/marketing" },
   { icon: Tag, label: "Discounts", href: "/discounts" },
-  { 
+  {
     icon: FileText, label: "Content", href: "/content",
     subItems: [
       { label: "Metaobjects", href: "/content/metaobjects" },
@@ -37,13 +86,13 @@ const menuItems: MenuItem[] = [
       { label: "Blog posts", href: "/content/blog-posts" },
     ]
   },
-  { 
+  {
     icon: Globe, label: "Markets", href: "/markets",
     subItems: [
       { label: "Catalogs", href: "/markets/catalogs" }
     ]
   },
-  { 
+  {
     icon: BarChart3, label: "Analytics", href: "/analytics",
     subItems: [
       { label: "Reports", href: "/analytics/reports" },
@@ -129,11 +178,10 @@ export function PetotySidebar({ open, onToggle, activePath = "/" }: PetotySideba
                     <span className="flex-1">{item.label}</span>
                   </MotionLink>
                   {item.subItems && (
-                    <button 
+                    <button
                       onClick={(e) => toggleExpand(item.label, e)}
-                      className={`absolute right-1 p-1.5 rounded-md transition-colors ${
-                        isExpanded ? "text-primary-foreground" : "text-primary-foreground/50 hover:text-primary-foreground"
-                      }`}
+                      className={`absolute right-1 p-1.5 rounded-md transition-colors ${isExpanded ? "text-primary-foreground" : "text-primary-foreground/50 hover:text-primary-foreground"
+                        }`}
                     >
                       {isExpanded ? <ChevronDown className="w-4 h-4" /> : <ChevronRight className="w-4 h-4" />}
                     </button>
@@ -158,11 +206,10 @@ export function PetotySidebar({ open, onToggle, activePath = "/" }: PetotySideba
                               onClick={() => {
                                 if (window.innerWidth < 1024) onToggle();
                               }}
-                              className={`text-sm py-2 px-3 rounded-lg transition-colors ${
-                                isSubActive 
-                                  ? "bg-primary-foreground/10 text-primary-foreground font-medium" 
+                              className={`text-sm py-2 px-3 rounded-lg transition-colors ${isSubActive
+                                  ? "bg-primary-foreground/10 text-primary-foreground font-medium"
                                   : "text-primary-foreground/60 hover:text-primary-foreground hover:bg-primary-foreground/5"
-                              }`}
+                                }`}
                             >
                               {subItem.label}
                             </Link>
@@ -178,7 +225,7 @@ export function PetotySidebar({ open, onToggle, activePath = "/" }: PetotySideba
         </nav>
 
         <div className="p-4 mt-auto">
-          {/* Subscription Banner */}
+          {/* Subscription Banner 
           <div className="bg-foreground text-background p-4 rounded-xl shadow-lg relative overflow-hidden group">
             <h5 className="font-semibold text-sm mb-1">Trial ends in 3 days</h5>
             <p className="text-xs text-background/80 mb-3">Subscribe for ₹20</p>
@@ -186,7 +233,7 @@ export function PetotySidebar({ open, onToggle, activePath = "/" }: PetotySideba
               Subscribe
             </button>
             <PawPrint className="w-20 h-20 absolute -bottom-6 -right-4 text-background/5 rotate-12 group-hover:rotate-6 transition-transform" />
-          </div>
+          </div>*/}
         </div>
       </aside>
 
