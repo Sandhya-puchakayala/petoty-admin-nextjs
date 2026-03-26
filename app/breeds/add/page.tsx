@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { DashboardLayout } from "@/components/layout/DashboardLayout";
-import { Image as ImageIcon, ImageOutline, UploadCloud } from "lucide-react";
+import { Image as ImageIcon, UploadCloud } from "lucide-react";
 
 export default function AddBreedPage() {
   const router = useRouter();
