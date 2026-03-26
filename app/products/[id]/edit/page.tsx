@@ -151,7 +151,10 @@ function RichTextEditor({
               onClick={() => item.cmd && exec(item.cmd, item.val)}
               className="p-1.5 rounded hover:bg-muted transition-colors text-foreground/60 hover:text-foreground"
             >
-              <item.icon className="w-3.5 h-3.5" />
+              {(() => {
+                const Icon = item.icon as any;
+                return <Icon className="w-3.5 h-3.5" />;
+              })()}
             </button>
           ) : null
         )}
