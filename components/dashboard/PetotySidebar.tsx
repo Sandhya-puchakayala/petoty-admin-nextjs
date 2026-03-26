@@ -34,7 +34,7 @@ const menuItems: MenuItem[] = [
     ]
   },
   {
-    icon: Dog, label: "Breeds", href: "/breeds",
+    icon: Dog, label: "Breeds", href: "/breeds/all",
     subItems: [
       { label: "All Breeds", href: "/breeds/all" },
       { label: "Add Breed", href: "/breeds/add" },
