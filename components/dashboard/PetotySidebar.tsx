@@ -137,11 +137,12 @@ export function PetotySidebar({ open, onToggle, activePath = "/" }: PetotySideba
       </AnimatePresence>
 
       <aside
-        className={`fixed left-0 top-0 h-screen bg-primary text-primary-foreground flex flex-col z-50 transition-transform duration-300 w-64
+        className={`fixed left-0 top-0 bg-primary text-primary-foreground flex flex-col z-50 transition-transform duration-300 w-64
           ${open ? "translate-x-0" : "-translate-x-full"} lg:translate-x-0`}
+        style={{ height: "100vh", maxHeight: "100vh" }}
       >
         {/* Logo */}
-        <div className="p-6 flex items-center justify-between">
+        <div className="p-6 flex items-center justify-between shrink-0">
           <div className="flex items-center gap-3">
             <div className="bg-primary-foreground/10 p-2 rounded-lg">
               <PawPrint className="w-6 h-6" />
@@ -154,7 +155,7 @@ export function PetotySidebar({ open, onToggle, activePath = "/" }: PetotySideba
         </div>
 
         {/* Nav */}
-        <nav className="flex-1 px-3 space-y-1 overflow-y-auto">
+        <nav className="flex-1 px-3 space-y-1 overflow-y-auto min-h-0">
           {menuItems.map((item) => {
             const isActive = activePath === item.href || (item.href !== "/" && activePath.startsWith(item.href));
             const isExpanded = expandedItems[item.label] !== undefined ? expandedItems[item.label] : isActive;
@@ -224,7 +225,7 @@ export function PetotySidebar({ open, onToggle, activePath = "/" }: PetotySideba
           })}
         </nav>
 
-        <div className="p-4 mt-auto">
+        <div className="p-4 mt-auto shrink-0 border-t border-primary-foreground/10">
           {/* Subscription Banner 
           <div className="bg-foreground text-background p-4 rounded-xl shadow-lg relative overflow-hidden group">
             <h5 className="font-semibold text-sm mb-1">Trial ends in 3 days</h5>
